@@ -1,0 +1,43 @@
+*::before, *::after, * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.case-container {
+    background: black;
+    color: white;
+    width: 20rem;
+    height: 20rem;
+    border: 1px solid white;
+     border-radius: 5%;
+}
+
+.display-container {
+    width: 18rem;
+    height: 5rem;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+}
+
+.key-header-container {
+    width: 18rem;
+    height: 3rem;
+    border: 1px solid white;
+    border-radius: 0.5rem;
+    justify-items: center;
+}
+
+.key-header-container > ul{
+    display: flex;
+    align-items: center;
+}
+
+button {
+    color: white;
+    background: none;
+    width: 10%;
+    height: 2rem;
+    border-radius: 70%;
+    border: 1px solid white;
+}
