@@ -4,16 +4,20 @@
     padding: 0;
 }
 
+
 .case-container {
     background: black;
     color: white;
     width: 20rem;
     height: 20rem;
     border: 1px solid white;
-     border-radius: 5%;
+    border-radius: 5%;
 }
 
 .display-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 18rem;
     height: 5rem;
     border: 1px solid white;
@@ -22,21 +26,24 @@
 
 .key-header-container {
     width: 18rem;
-    height: 3rem;
+    height: 3rem;   
     border: 1px solid white;
     border-radius: 0.5rem;
-}
-
-.key-header-container > ul{
-    display: flex;
     align-items: center;
 }
 
-button {
+.key-header-container > ul {
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+}
+
+ul > li > button {
     color: white;
     background: none;
     width: 10%;
     height: 2rem;
     border-radius: 70%;
     border: 1px solid white;
+    cursor: pointer;
 }
