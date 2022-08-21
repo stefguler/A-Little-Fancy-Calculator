@@ -141,7 +141,7 @@ button:hover {
 }
 
 /*special buttons*/
-.symbol {
+.symbol, .operator{
     background: darkgray;
 }
 
