@@ -40,7 +40,7 @@ header {
     color: var(--main-color);
     border: solid 0.3rem var(--second-background-color);
     width: 20rem;
-    height: 20rem;
+    height: 25rem;
     border-radius: 5%;
     padding: 0.5rem 0.2rem;
 }
@@ -54,7 +54,7 @@ header {
     /* border: solid white 1px; */
     margin: 0 0.2rem 0.3rem;
     border-radius: 1rem;
-    padding: 0.5rem 0.2rem;
+    padding: 0.1rem 0.2rem;
     background: var(--second-background-color)
   
 }
@@ -64,7 +64,7 @@ header {
     align-items: center;
     justify-content: center;
     width: 18rem;
-    height: 5rem;
+    height: 6rem;
     /* border: 1px solid white; */
     border-radius: 0.5rem;
     background: var(--main-background-color);
@@ -72,7 +72,6 @@ header {
 
 .key-header-container {
     display: flex;
-    padding: 1rem;
     margin-bottom: 1rem;
     width: 18rem;
     height: 3rem;   
@@ -121,11 +120,38 @@ header {
     width: 3rem;
     height: 32px;
     border-radius: 1rem;
-
     border: none
+}
+
+.key-container {
 
 }
 
+.key-container > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+}
+
+.key-container > ul > li {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  margin: 0.2rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.key-container > ul > li > button {
+    width: 50%;
+  
+}
+
+
+
+
+/*general button layout*/
 
 ul > li > button {
     color: white;
