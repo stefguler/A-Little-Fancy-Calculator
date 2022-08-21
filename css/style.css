@@ -2,7 +2,7 @@
 /* Variables */
 :root {
     --main-background-color : #222;
-    --second-background-color: rgb(52, 52, 52);
+    --second-background-color: 	rgb(160,82,45);
     --main-color: #fff;
 }
   
@@ -27,8 +27,10 @@ body {
     vertical-align: middle;
 }
 
-header {
+header > h1 {
+    font-family: 'Silkscreen', cursive;
     margin: 3rem 0;
+    font-size: 48px;
 }
 
 .case-container {
@@ -51,21 +53,21 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: solid white 1px; */
-    margin: 0 0.2rem 0.3rem;
+    margin: 0 0.1rem 0.3rem;
     border-radius: 1rem;
     padding: 0.1rem 0.2rem;
-    background: var(--second-background-color)
-  
+    background: rgb(139,69,19);  
 }
 
 .display-container {
+    font-family: 'Silkscreen', cursive;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 0.3rem;
     width: 18rem;
     height: 6rem;
-    /* border: 1px solid white; */
     border-radius: 0.5rem;
     background: var(--main-background-color);
 }
@@ -95,36 +97,9 @@ header {
     justify-content: flex-end;
 }
 
-.key-header-container > .key-header-container-right > ul {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
 
-.key-header-container > .key-header-container-right > ul > li {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    margin-left: 1rem;
-}
-
-.key-header-container > .key-header-container-right > ul > li > button {
-    width: 3rem;
-    border-radius: 1rem;
-    background: var(--main-color);
-    color: var(--main-background-color);
-    border: none;
-}
-
-.key-header-container > .key-header-container-left button {
-    width: 3rem;
-    height: 32px;
-    border-radius: 1rem;
-    border: none
-}
-
-.key-container {
-
+.key-header-container > .key-header-container-right > button {
+    margin: 0 0.5rem;
 }
 
 .key-container > ul {
@@ -137,38 +112,40 @@ header {
   display: flex;
   height: 100%;
   width: 100%;
-  margin: 0.2rem;
+  padding: 0.2rem;
   justify-content: center;
   align-items: center;
   align-content: center;
 }
 
 .key-container > ul > li > button {
-    width: 50%;
+    width: 70%;
   
 }
 
-
-
-
 /*general button layout*/
-
-ul > li > button {
-    color: white;
-    background: none;
-    width: 10%;
-    height: 2rem;
-    border-radius: 70%;
-    border: 1px solid white;
-}
-
 button {
-    background: white;
-    color: black;
+    width: 3rem;
+    height: 2rem;
+    border-radius: 1rem;
+    border: none;
+    background: var(--main-color);
+    color: var(--main-background-color);
     cursor: pointer;
 }
 
 button:hover {
-    background: var(--second-background-color);
+    background: rgb(74, 74, 74);
+    border: solid 1px black;
     color:var(--main-color);
 }
+
+/*special buttons*/
+.symbol {
+    background: darkgray;
+}
+
+#equal {
+    background: lightcoral;
+}
+

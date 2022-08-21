@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Calculator UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Silkscreen:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+
+    <title>Just a Calculator</title>
 </head>
 <body>
     <header>
@@ -20,43 +26,41 @@
         <div class="key-container-frame">
             <div class="key-header-container">
                 <div class="key-header-container-left">
-                    <button class="help-button">hel</button>
+                    <button class="help-button">help</button>
                 </div>
                 <div class="key-header-container-right">
-                    <ul>
-                        <li><button class="del-button">del</button></li>
-                        <li><button class="res-button">res</button></li>
-                    </ul>
+                        <button class="del-button">del</button>
+                        <button class="res-button">res</button>
                 </div>
             </div>
             <div class="key-container">
                 <ul>
-                    <li><button class="ce">C</button></li>
-                    <li><button class="brackets">()</button></li>
-                    <li><button class="modulo">%</button></li>
-                    <li><button class="dividor">÷</button></li>
-                    <li><button class="multiplier">x</button></li>
-                    <li><button class="minus">-</button></li>
-                    <li><button class="plus">+</button></li>
-                    <li><button class="equal">=</button></li>
-                    <li><button class="one">1</button></li>
-                    <li><button class="two">2</button></li>
-                    <li><button class="three">3</button></li>
-                    <li><button class="four">4</button></li>
-                    <li><button class="five">5</button></li>
-                    <li><button class="six">6</button></li>
-                    <li><button class="seven">7</button></li>
-                    <li><button class="eight">8</button></li>
-                    <li><button class="nine">9</button></li>
-                    <li><button class="plus-minus">+/-</button></li>
-                    <li><button class="zero">0</button></li>
-                    <li><button class="dot">.</button></li>
+                    <li><button id="ce" class="symbol">C</button></li>
+                    <li><button id="brackets" class="symbol">()</button></li>
+                    <li><button id="modulo" class="symbol">%</button></li>
+                    <li><button id="dividor" class="symbol">÷</button></li>
+                    <li><button id="seven">7</button></li>
+                    <li><button id="eight">8</button></li>
+                    <li><button id="nine">9</button></li>
+                    <li><button id="multiply" class="symbol">x</button></li>
+                    <li><button id="four">4</button></li>
+                    <li><button id="five">5</button></li>
+                    <li><button id="six">6</button></li>
+                    <li><button id="minus" class="symbol">-</button></li>
+                    <li><button id="one">1</button></li>
+                    <li><button id="two">2</button></li>
+                    <li><button id="three">3</button></li>
+                    <li><button id="plus" class="symbol">+</button></li>
+                    <li><button id="plus-minus">+/-</button></li>
+                    <li><button id="zero">0</button></li>
+                    <li><button id="dot">.</button></li>
+                    <li><button id="equal">=</button></li>
                 </ul>
             </div>
         </div>
     </div>
     <footer>
-        <small>copyright by sDev Solutions 2022</small>
+        <small>&copy by sDev Solutions 2022</small>
     </footer>
 </body>
 </html>
