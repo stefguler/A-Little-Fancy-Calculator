@@ -140,6 +140,10 @@ footer {
     margin-top: 2rem;
 }
 
+small {
+    font-family: 'Silkscreen', cursive;
+}
+
 /*general button layout*/
 button {
     width: 3rem;
