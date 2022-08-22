@@ -68,17 +68,19 @@ for (i of btns) {
             break;
         case "print":
             i.addEventListener('click', e => {
-                operator = e.target.id;
-                if (currentValue != undefined) calcList.push(currentValue);
-                if (bracketFlag) calcList.push(")");
-                let value = evaluateResult();
-                calcList.push(operator)
-                calcList.push(value)
-                currentValueSpan.innerHTML = value;
-                adjustDisplayString()
-                calcList = [];
-                currentValue = value;
-                bracketFlag = false;        
+                if (currentValue != undefined) {
+                    operator = e.target.id;
+                    if (currentValue != undefined) calcList.push(currentValue);
+                    if (bracketFlag) calcList.push(")");
+                    let value = evaluateResult();
+                    calcList.push(operator)
+                    calcList.push(value)
+                    currentValueSpan.innerHTML = value;
+                    adjustDisplayString()
+                    calcList = [];
+                    currentValue = value;
+                    bracketFlag = false;   
+                }     
             }) 
             break;
         case "reset":
