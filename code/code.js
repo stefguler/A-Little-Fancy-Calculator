@@ -21,7 +21,7 @@ for (i of btns) {
                 if (currentValue === undefined) {
                     currentValue = clickedValue 
                 } else { 
-                currentValue = parseInt(`${currentValue}${clickedValue}`);
+                    currentValue = parseFloat(`${currentValue}${clickedValue}`);
                 }
 
                 currentValueSpan.innerHTML = currentValue
@@ -57,7 +57,8 @@ for (i of btns) {
                     break;
                     case "dot":
                         currentValue = (`${currentValue}.`)
-                        currentValueSpan.innerHTML = 'Float conversion missing'
+                        currentValueSpan.innerHTML = currentValue
+                        
                     break;
                     default:
                     break;
@@ -102,7 +103,7 @@ for (i of btns) {
                 if (currentValue.toString().length > 1) {
                     let splitVal = currentValue.toString().split('')
                     splitVal.pop();
-                    currentValue = parseInt(splitVal.join(''));
+                    currentValue = parseFloat(splitVal.join(''));
                 } else {
                     currentValue = 0;
                 }

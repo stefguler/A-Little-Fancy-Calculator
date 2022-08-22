@@ -1,5 +1,4 @@
 /* variables */
-/* Variables */
 :root {
     --main-background-color : #222;
     --second-background-color: 	rgb(160,82,45);
@@ -9,7 +8,6 @@
 
 
 /* Small Reset */
-
 *::before, *::after, * {
     box-sizing: border-box;
     margin: 0;
@@ -25,6 +23,7 @@ body {
     flex-direction: column;
     align-items: center;
     vertical-align: middle;
+    background: lightyellow;
 }
 
 header > h1 {
@@ -124,6 +123,10 @@ header > h1 {
   
 }
 
+footer {
+    margin-top: 2rem;
+}
+
 /*general button layout*/
 button {
     width: 3rem;
@@ -146,7 +149,7 @@ button:hover {
     background: darkgray;
 }
 
-#equal {
+.print {
     background: lightcoral;
 }
 
