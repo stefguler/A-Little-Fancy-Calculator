@@ -40,7 +40,7 @@ for (i of btns) {
                         bracketFlag = false;
                     }
                 }
-                calcList.push(currentValue);
+                if (currentValue != undefined) calcList.push(currentValue);
                 currentValue = undefined;
                 calcList.push(operator);
                 
@@ -52,7 +52,7 @@ for (i of btns) {
             i.addEventListener('click', e=> {                              
                 switch (e.target.id) {
                     case "plus-minus":
-                        currentValue = currentValue * -1;
+                        if (currentValue != undefined) currentValue = currentValue * -1;
                         currentValueSpan.innerHTML = currentValue
                     break;
                     case "dot":
@@ -67,7 +67,8 @@ for (i of btns) {
         case "print":
             i.addEventListener('click', e => {
                 operator = e.target.id;
-                calcList.push(currentValue);
+                if (currentValue != undefined) calcList.push(currentValue);
+                if (bracketFlag) calcList.push(")");
                 let value = evaluateResult();
                 calcList.push(operator)
                 calcList.push(value)
@@ -78,7 +79,7 @@ for (i of btns) {
                 bracketFlag = false;        
             }) 
             break;
-        case "erase":
+        case "reset":
             i.addEventListener('click', e => {
                 display.innerHTML = 'Let me calculate this for you &#129299'
                 currentValueSpan.innerHTML = '';
@@ -89,6 +90,24 @@ for (i of btns) {
                 operator = undefined;
             })
             break;
+        case "softreset":
+            i.addEventListener('click', e => {
+                currentValueSpan.innerHTML = 0;
+                clickedValue = 0;
+                currentValue = 0;
+            })
+            break;
+        case "del":
+            i.addEventListener('click', e => {
+                if (currentValue.toString().length > 1) {
+                    let splitVal = currentValue.toString().split('')
+                    splitVal.pop();
+                    currentValue = parseInt(splitVal.join(''));
+                } else {
+                    currentValue = 0;
+                }
+                    currentValueSpan.innerHTML = currentValue;
+            })
         default:
             break;
     }
