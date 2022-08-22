@@ -1,9 +1,9 @@
 
 let result = 0;
 let operator;
-let isOperating = false;
 let currentValue;
 let displayValue;
+let calcList = [];
 
 const display = document.querySelector('.display')
 const currentValueSpan = document.querySelector('.currentValue')
@@ -16,52 +16,61 @@ for (i of btns) {
         case "number":
             i.addEventListener('click', e => {
                 let clickedValue = parseInt(e.target.id)
+                
+                if (currentValue === undefined) {
+                    currentValue = clickedValue 
+                } else { 
+                currentValue = parseInt(`${currentValue}${clickedValue}`);
+                }
 
-                if (displayValue === undefined) {
-                    currentValue = clickedValue;
-                    displayValue = currentValue;
-                    result = clickedValue;
-                }
-                else if (isOperating) {
-                    currentValue = clickedValue;
-                    displayValue = `${displayValue} ${clickedValue}`
-                    result = operate(result , clickedValue, operator)
-                } else {
-                   currentValue = parseInt(`${currentValue}${clickedValue}`);
-                }
                 currentValueSpan.innerHTML = currentValue
-                display.innerHTML = displayValue
             })
             break;
         case "operator":
             i.addEventListener('click', e => {
-                (isOperating) ? isOperating = false : isOperating = true;
                 operator = e.target.id;
-                displayValue = `${displayValue} ${operator}`
-                display.innerHTML = displayValue;
+                calcList.push(currentValue);
+                currentValue = undefined;
+                calcList.push(operator);
+
+                adjustDisplayString()
+                currentValueSpan.innerHTML = operator;
             })
             break;
         case "symbol":
-            i.addEventListener('click', e=> {
-                display.innerHTML = "a symbol was clicked - implemetation is missing";
+            i.addEventListener('click', e=> {                              
+                switch (e.target.id) {
+                    case "brackets":
+                        display.innerHTML = '()-button clicked - implementation missing'
+                        break;
+                        case "plus-minus":
+                            currentValue = currentValue * -1;
+                            currentValueSpan.innerHTML = currentValue
+                            break;
+                            case "dot":
+                                currentValue = (`${currentValue}.`)
+                                currentValueSpan.innerHTML = 'Float conversion missing'
+                                break;
+                    default:
+                        break;
+                }
             })
             break;
         case "print":
             i.addEventListener('click', e => {
-                display.innerHTML = `${displayValue} =`;
-                currentValueSpan.innerHTML = result;
-
+                display.innerHTML = "result was clicked - implemetation is missing";
+            
             }) 
             break;
         case "erase":
             i.addEventListener('click', e => {
                 display.innerHTML = 'Let me calculate this for you &#129299'
                 currentValueSpan.innerHTML = '';
+                calcList = [];
                 currentValue = undefined;
                 clickedValue = undefined;
                 displayValue = undefined;
                 operator = undefined;
-                isOperating = false;
             })
             break;
         default:
@@ -86,4 +95,13 @@ operate = (val1, val2, operator) => {
         default:
             break;
     }
+}
+
+adjustDisplayString = () => {
+    displayValue = '';
+    for (i = 0; i < calcList.length;i++) {
+        displayValue = `${displayValue} ${calcList[i]}`
+    }
+    display.innerHTML = displayValue;
+
 }
