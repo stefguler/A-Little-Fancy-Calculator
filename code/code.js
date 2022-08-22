@@ -118,9 +118,9 @@ for (i of btns) {
                     if (!helpFlag) {
                     helpFlag = true;
                     document.querySelector(".helpbox").innerHTML = `
-                        <p>Instruction: This thing below does matematical operations for you! 
-                        Go on and enter the mathematical operation by clicking the buttons. Always evaluate with the "="-button &#129299</p>
-                        <p>Good Luck & Have Fun!</p>
+                        <p>Instruction: This thing below does mathematical operations for you! 
+                        Go on and enter the mathematical operation by clicking the buttons. Always evaluate with the =-button &#129497;&#127997</p>
+                        <p>Good Luck And Have Fun!</p>
                         ` 
                     } else {
                         helpFlag = false;
