@@ -1,27 +1,35 @@
 
-let result;
-let val1;
-let val2;
+let result = 0;
 let operator;
 let isOperating = false;
-const display = document.querySelector('.display')
+let currentValue;
 let displayValue;
 
+const display = document.querySelector('.display')
+const currentValueSpan = document.querySelector('.currentValue')
 let btns = document.querySelectorAll('button');
 
 console.dir('script loaded')
+
 for (i of btns) {
-    console.log(i.className)
     switch (i.className) {
         case "number":
             i.addEventListener('click', e => {
-                clickedValue = parseInt(e.target.id);
-                if (isOperating) {
-                    displayValue = `${displayValue}` 
-                    result = operate(clickedValue, result, operator)
-                } else {
-                    displayValue = `${displayValue}${clickedValue}`
+                let clickedValue = parseInt(e.target.id)
+
+                if (displayValue === undefined) {
+                    currentValue = clickedValue;
+                    displayValue = currentValue;
+                    result = clickedValue;
                 }
+                else if (isOperating) {
+                    currentValue = clickedValue;
+                    displayValue = `${displayValue} ${clickedValue}`
+                    result = operate(result , clickedValue, operator)
+                } else {
+                   currentValue = parseInt(`${currentValue}${clickedValue}`);
+                }
+                currentValueSpan.innerHTML = currentValue
                 display.innerHTML = displayValue
             })
             break;
@@ -30,7 +38,7 @@ for (i of btns) {
                 (isOperating) ? isOperating = false : isOperating = true;
                 operator = e.target.id;
                 displayValue = `${displayValue} ${operator}`
-                display.innerHTML = displayValue
+                display.innerHTML = displayValue;
             })
             break;
         case "symbol":
@@ -40,13 +48,20 @@ for (i of btns) {
             break;
         case "print":
             i.addEventListener('click', e => {
-                display.innerHTML = result;
-                displayValue = result;
+                display.innerHTML = `${displayValue} =`;
+                currentValueSpan.innerHTML = result;
+
             }) 
             break;
         case "erase":
             i.addEventListener('click', e => {
                 display.innerHTML = 'Let me calculate this for you &#129299'
+                currentValueSpan.innerHTML = '';
+                currentValue = undefined;
+                clickedValue = undefined;
+                displayValue = undefined;
+                operator = undefined;
+                isOperating = false;
             })
             break;
         default:
