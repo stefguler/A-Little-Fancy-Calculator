@@ -4,6 +4,7 @@ let operator;
 let currentValue;
 let displayValue;
 let calcList = [];
+let bracketFlag = false;
 
 const display = document.querySelector('.display')
 const currentValueSpan = document.querySelector('.currentValue')
@@ -29,10 +30,20 @@ for (i of btns) {
         case "operator":
             i.addEventListener('click', e => {
                 operator = e.target.id;
+                if (operator == 'brackets') {
+                    if (!bracketFlag) {
+                        operator = "("
+                        bracketFlag = true;
+                    }
+                    else {
+                        operator = ")";
+                        bracketFlag = false;
+                    }
+                }
                 calcList.push(currentValue);
                 currentValue = undefined;
                 calcList.push(operator);
-
+                
                 adjustDisplayString()
                 currentValueSpan.innerHTML = operator;
             })
@@ -40,26 +51,31 @@ for (i of btns) {
         case "symbol":
             i.addEventListener('click', e=> {                              
                 switch (e.target.id) {
-                    case "brackets":
-                        display.innerHTML = '()-button clicked - implementation missing'
-                        break;
-                        case "plus-minus":
-                            currentValue = currentValue * -1;
-                            currentValueSpan.innerHTML = currentValue
-                            break;
-                            case "dot":
-                                currentValue = (`${currentValue}.`)
-                                currentValueSpan.innerHTML = 'Float conversion missing'
-                                break;
+                    case "plus-minus":
+                        currentValue = currentValue * -1;
+                        currentValueSpan.innerHTML = currentValue
+                    break;
+                    case "dot":
+                        currentValue = (`${currentValue}.`)
+                        currentValueSpan.innerHTML = 'Float conversion missing'
+                    break;
                     default:
-                        break;
+                    break;
                 }
             })
             break;
         case "print":
             i.addEventListener('click', e => {
-                display.innerHTML = "result was clicked - implemetation is missing";
-            
+                operator = e.target.id;
+                calcList.push(currentValue);
+                let value = evaluateResult();
+                calcList.push(operator)
+                calcList.push(value)
+                currentValueSpan.innerHTML = value;
+                adjustDisplayString()
+                calcList = [];
+                currentValue = value;
+                bracketFlag = false;        
             }) 
             break;
         case "erase":
@@ -78,30 +94,20 @@ for (i of btns) {
     }
 }
 
-operate = (val1, val2, operator) => {
-    switch (operator) {
-        case "%":
-            return val1 % val2;
-            break;
-        case "÷":
-            return val2 == 0 ? "err: 0 division" : val1 / val2;
-            break;
-        case "x":
-            return val1 * val2;
-        case "-":
-            return val1 - val2;
-        case "+":
-            return val1 + val2;
-        default:
-            break;
-    }
-}
-
 adjustDisplayString = () => {
     displayValue = '';
     for (i = 0; i < calcList.length;i++) {
         displayValue = `${displayValue} ${calcList[i]}`
     }
     display.innerHTML = displayValue;
+}
 
+evaluateResult = () => {
+    let result = '';
+    /*calcList.push(currentValue);*/
+    for (i = 0; i < calcList.length;i++) {
+        result = result + calcList[i]
+    }
+    console.log(result)
+    return eval(result)
 }
