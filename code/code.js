@@ -5,6 +5,7 @@ let currentValue;
 let displayValue;
 let calcList = [];
 let bracketFlag = false;
+let helpFlag = false;
 
 const display = document.querySelector('.display')
 const currentValueSpan = document.querySelector('.currentValue')
@@ -109,6 +110,21 @@ for (i of btns) {
                 }
                     currentValueSpan.innerHTML = currentValue;
             })
+            break;
+            case "help":
+                i.addEventListener('click', e => {
+                    if (!helpFlag) {
+                    helpFlag = true;
+                    document.querySelector(".helpbox").innerHTML = `
+                        <p>Instruction: This thing below does matematical operations for you! 
+                        Go on and enter the mathematical operation by clicking the buttons. Always evaluate with the "="-button &#129299</p>
+                        <p>Good Luck & Have Fun!</p>
+                        ` 
+                    } else {
+                        helpFlag = false;
+                        document.querySelector('.helpbox').innerHTML = '';
+                    }
+                })
         default:
             break;
     }
